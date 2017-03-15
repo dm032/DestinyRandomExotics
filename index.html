@@ -97,6 +97,7 @@
             <div class="col-xs-3 score">
                 <p>Current Socre:</p>
                 <h2 id="scoreCounter">0</h2>
+                <button class="btn btn-small" id="resetScore">Reset Score</button>
             </div>
             
         </div>
@@ -119,6 +120,7 @@
         var inventory = new Array();
         var weapon = "Select Inventory";
         var weaponNo = "0";
+        var score = "0";
         
         function getUnique(count) {
           // Make a copy of the array
@@ -148,6 +150,7 @@
                 return e.value;
             });
         weaponNo = 0;
+        score = 0;
         inventory = getUnique(10);
         $("#inventoryList p").remove();
         var commentsContainer = document.getElementById("inventoryList");
@@ -172,9 +175,10 @@
         });
         });
         
-        $("#nextWeapon").click(function(event){
-            weaponNo++;
+        $("#nextWeapon").click(function(event){            
+            score++;
             if (weaponNo < 10) {
+                weaponNo++;
                 weapon = inventory[weaponNo];
             } else {
             do {
@@ -189,9 +193,15 @@
                 return weapon;
             });
             $("#scoreCounter").text(function(n){
-                return weaponNo;
+                return score;
             });
         });
+        $("#nextWeapon").click(function(event){
+            score = 0;
+            $("#scoreCounter").text(function(n){
+                return score;
+            });
+         });
         
 /*        window.addEventListener('keydown', function(e) {
           if(e.keyCode == 32 && e.target == document.body) {
