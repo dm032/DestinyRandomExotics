@@ -147,6 +147,7 @@
         var weapon = "Select Inventory";
         var weaponNo = "0";
         var score = "0";
+        var killsInLife = "0";
         
         function getUnique(count) {
           // Make a copy of the array
@@ -201,7 +202,9 @@
         });
         });
         
-        $("#nextWeapon").click(function(event){            
+        $("#nextWeapon").click(function(event){ 
+            if (killsInLife >= 1) {
+                killsInLife = 0;
             if (weaponNo < 10) {
                 weaponNo++;
                 weapon = inventory[weaponNo];
@@ -215,9 +218,11 @@
             $("#currentWeapon").text(function(n){
                 return weapon;
             });
+            };
         });
         $("#increaseScore").click(function(event){
              score++;
+             killsInLife++;
             $("#scoreCounter").text(function(n){
                 return score;
             });
