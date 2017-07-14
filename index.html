@@ -213,10 +213,6 @@
             
             };
             
-         $("#increaseScore").click(function(event){
-             score++;
-            });
-            
 
             $("#currentWeapon").text(function(n){
                 return weapon;
@@ -225,6 +221,15 @@
                 return score;
             });
         });
+        $("#increaseScore").click(function(event){
+             score++;
+            $("#currentWeapon").text(function(n){
+                return weapon;
+            });
+            $("#scoreCounter").text(function(n){
+                return score;
+            });
+            });
         $("#resetScore").click(function(event){
             score = 0;
             $("#scoreCounter").text(function(n){
