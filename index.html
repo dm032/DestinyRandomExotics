@@ -212,20 +212,12 @@
             weapon = newWeapon;
             
             };
-            
-
             $("#currentWeapon").text(function(n){
                 return weapon;
-            });
-            $("#scoreCounter").text(function(n){
-                return score;
             });
         });
         $("#increaseScore").click(function(event){
              score++;
-            $("#currentWeapon").text(function(n){
-                return weapon;
-            });
             $("#scoreCounter").text(function(n){
                 return score;
             });
